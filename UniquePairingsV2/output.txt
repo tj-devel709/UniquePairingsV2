@@ -1,20 +1,143 @@
-Did not find a fully working solution with 5
-Let's try with 4
-Did not find a fully working solution with 4
-Let's try with 3
 
 Round: 1
-new Group("Matt", "Advay"),
-new Group("Kunyi", "TJ"),
-new Group("Heng", "Rachel"),
+new Group("Matt", "Kunyi"),
+new Group("Advay", "Heng"),
+new Group("TJ", "Jim"),
+new Group("Rachel", "Pam"),
+new Group("Matt1", "Advay1"),
+new Group("Kunyi1", "Heng1"),
+new Group("TJ1", "Jim2"),
+new Group("Rachel1", "Pam2"),
 
 Round: 2
-new Group("Matt", "TJ"),
-new Group("Advay", "Rachel"),
-new Group("Kunyi", "Heng"),
+new Group("Matt", "Heng"),
+new Group("Kunyi", "Advay"),
+new Group("TJ", "Pam"),
+new Group("Rachel", "Jim"),
+new Group("Matt1", "Heng1"),
+new Group("Kunyi1", "Advay1"),
+new Group("TJ1", "Pam2"),
+new Group("Rachel1", "Jim2"),
 
 Round: 3
+new Group("Matt", "TJ"),
+new Group("Kunyi", "Rachel"),
+new Group("Advay", "Jim"),
+new Group("Heng", "Pam"),
+new Group("Matt1", "TJ1"),
+new Group("Kunyi1", "Rachel1"),
+new Group("Advay1", "Jim2"),
+new Group("Heng1", "Pam2"),
+
+Round: 4
 new Group("Matt", "Rachel"),
+new Group("Kunyi", "TJ"),
+new Group("Advay", "Pam"),
+new Group("Heng", "Jim"),
+new Group("Matt1", "Rachel1"),
+new Group("Kunyi1", "TJ1"),
+new Group("Advay1", "Pam2"),
+new Group("Heng1", "Jim2"),
+
+Round: 5
+new Group("Matt", "Jim"),
+new Group("Kunyi", "Pam"),
+new Group("Advay", "TJ"),
+new Group("Heng", "Rachel"),
+new Group("Matt1", "Jim2"),
+new Group("Kunyi1", "Pam2"),
+new Group("Advay1", "TJ1"),
+new Group("Heng1", "Rachel1"),
+
+Round: 6
+new Group("Matt", "Pam"),
+new Group("Kunyi", "Jim"),
+new Group("Advay", "Rachel"),
 new Group("Heng", "TJ"),
-new Group("Kunyi", "Advay"),
+new Group("Matt1", "Pam2"),
+new Group("Kunyi1", "Jim2"),
+new Group("Advay1", "Rachel1"),
+new Group("Heng1", "TJ1"),
+
+Round: 7
+new Group("Matt", "Matt1"),
+new Group("Kunyi", "Kunyi1"),
+new Group("Advay", "Advay1"),
+new Group("Heng", "Heng1"),
+new Group("TJ", "TJ1"),
+new Group("Rachel", "Rachel1"),
+new Group("Jim", "Jim2"),
+new Group("Pam", "Pam2"),
+
+Round: 8
+new Group("Matt", "Kunyi1"),
+new Group("Kunyi", "Matt1"),
+new Group("Advay", "Heng1"),
+new Group("Heng", "Advay1"),
+new Group("TJ", "Rachel1"),
+new Group("Rachel", "TJ1"),
+new Group("Jim", "Pam2"),
+new Group("Pam", "Jim2"),
+
+Round: 9
+new Group("Matt", "Advay1"),
+new Group("Kunyi", "Heng1"),
+new Group("Advay", "Matt1"),
+new Group("Heng", "Kunyi1"),
+new Group("TJ", "Jim2"),
+new Group("Rachel", "Pam2"),
+new Group("Jim", "TJ1"),
+new Group("Pam", "Rachel1"),
+
+Round: 10
+new Group("Matt", "Heng1"),
+new Group("Kunyi", "Advay1"),
+new Group("Advay", "Kunyi1"),
+new Group("Heng", "Matt1"),
+new Group("TJ", "Pam2"),
+new Group("Rachel", "Jim2"),
+new Group("Jim", "Rachel1"),
+new Group("Pam", "TJ1"),
+
+Round: 11
+new Group("Matt", "TJ1"),
+new Group("Kunyi", "Rachel1"),
+new Group("Advay", "Jim2"),
+new Group("Heng", "Pam2"),
+new Group("TJ", "Matt1"),
+new Group("Rachel", "Kunyi1"),
+new Group("Jim", "Advay1"),
+new Group("Pam", "Heng1"),
+
+Round: 12
+new Group("Matt", "Rachel1"),
+new Group("Kunyi", "TJ1"),
+new Group("Advay", "Pam2"),
+new Group("Heng", "Jim2"),
+new Group("TJ", "Kunyi1"),
+new Group("Rachel", "Matt1"),
+new Group("Jim", "Heng1"),
+new Group("Pam", "Advay1"),
+
+Round: 13
+new Group("Matt", "Jim2"),
+new Group("Kunyi", "Pam2"),
+new Group("Advay", "TJ1"),
+new Group("Heng", "Rachel1"),
+new Group("Rachel", "Advay1"),
+new Group("Jim", "Matt1"),
+new Group("Pam", "Kunyi1"),
+new Group("TJ", "Heng1"),
+
+Round: 14
+new Group("Advay", "Rachel1"),
+new Group("Heng", "TJ1"),
+new Group("Pam", "Matt1"),
+new Group("Rachel", "Heng1"),
+new Group("Kunyi", "Jim2"),
+new Group("Matt", "Pam2"),
+new Group("Jim", "Kunyi1"),
+new Group("TJ", "Advay1"),
+
+Round: 15
 

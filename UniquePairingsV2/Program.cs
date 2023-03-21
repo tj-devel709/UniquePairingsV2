@@ -19,18 +19,32 @@ namespace UniquePairings
 			"Heng",
 			"TJ",
 			"Rachel",
+			"Jim",
+			"Pam",
+			"Matt1",
+			"Kunyi1",
+			"Advay1",
+			"Heng1",
+			"TJ1",
+			"Rachel1",
+			//"Jim1",
+			//"Pam1"
+			"Jim2",
+			"Pam2"
 		};
 
 		// If we have already met with some groups, put in the groups here
 		// so we can create more pairings and not redo partners
 		static readonly List<Group> AlreadyPairedGroups = new List<Group>
 		{
-			new Group("Matt", "Heng"),
-			new Group("Kunyi", "Rachel"),
-			new Group("Advay", "TJ"),
-			new Group("Matt", "Kunyi"),
-			new Group("Advay", "Heng"),
+			new Group("Matt", "Advay"),
+			new Group("Kunyi", "Heng"),
 			new Group("TJ", "Rachel"),
+			new Group("Jim", "Pam"),
+			new Group("Matt1", "Kunyi1"),
+			new Group("Advay1", "Heng1"),
+			new Group("TJ1", "Rachel1"),
+			new Group("Jim1", "Pam1"),
 		};
 
 		static int DesiredRounds;
@@ -38,7 +52,10 @@ namespace UniquePairings
 
 		static void Main(string[] args)
 		{
-			DesiredRounds = Participants.Count - 1;
+			var myTimer = new Timer(TimerCallback, null, 0, 4000);
+			DesiredRounds = Participants.Count;
+			Console.WriteLine($"Starting with DesiredRound: {DesiredRounds}");
+
 			CreateUniquePairing();
 			WriteResults();
 		}
@@ -90,8 +107,9 @@ namespace UniquePairings
 		// combination!
 		static bool BackTrackingPairings(List<Group> groups, int roundNumber, List<Round> workingSet)
 		{
+			//Console.WriteLine(roundNumber);
 			//// base case, we hit enough round numbers
-			if (roundNumber == DesiredRounds)
+			if (roundNumber >= DesiredRounds && IsEachRoundFilled(workingSet))
 			{
 				LogWorkingSet(workingSet);
 				return true;
@@ -119,6 +137,25 @@ namespace UniquePairings
 			}
 
 			return false;
+		}
+
+		static bool IsEachRoundFilled(List<Round> workingSet)
+		{
+			//foreach (var round in workingSet)
+			//{
+			//	var maxGroups = Participants.Count % 2 == 0 ? Participants.Count / 2 : (Participants.Count / 2) - 1;
+			//	if (round.Groups.Count != maxGroups)
+			//		return false;
+			//}
+			return true;
+		}
+
+		static void TimerCallback(object? state)
+		{
+			// This method will be executed every 5 seconds
+			if (DesiredRounds > 1)
+				DesiredRounds--;
+			Console.WriteLine($"Lowering DesiredRound: {DesiredRounds}");
 		}
 
 		static bool IsValidPairing(Group group, int roundNumber, List<Round> workingSet, out int nextRoundNumber)
