@@ -38,13 +38,6 @@ namespace UniquePairings
 
 		static void Main(string[] args)
 		{
-			// set the DesiredRounds here
-			// Default will be Participants.Count - 1
-			// but if we have added people later into
-			// AlreadyPairedGroups, we should decrease this number
-			// since we cannot guarentee the pairings we have already done
-			// will give us our desired results
-
 			DesiredRounds = Participants.Count - 1;
 			CreateUniquePairing();
 			WriteResults();
@@ -124,10 +117,6 @@ namespace UniquePairings
 					RemoveFromWorkingSet(workingSet, group, roundNumber);
 				}
 			}
-
-			//// update the BestSolution with current in case we do not find a fully working solution
-			//if (roundNumber < DesiredRounds && roundNumber > BestSolution.totalRounds)
-			//	BestSolution = (roundNumber, workingSet);
 
 			return false;
 		}
