@@ -1,0 +1,20 @@
+Did not find a fully working solution with 5
+Let's try with 4
+Did not find a fully working solution with 4
+Let's try with 3
+
+Round: 1
+new Group("Matt", "Advay"),
+new Group("Kunyi", "TJ"),
+new Group("Heng", "Rachel"),
+
+Round: 2
+new Group("Matt", "TJ"),
+new Group("Advay", "Rachel"),
+new Group("Kunyi", "Heng"),
+
+Round: 3
+new Group("Matt", "Rachel"),
+new Group("Heng", "TJ"),
+new Group("Kunyi", "Advay"),
+

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.IO;
+using System.Text;
 
 namespace UniquePairings
 {
-	// TODO Print results to a file so that I can copy and paste things easier!
-
 	class Program
 	{
 		// Add all the participants here!
@@ -25,17 +25,16 @@ namespace UniquePairings
 		// so we can create more pairings and not redo partners
 		static readonly List<Group> AlreadyPairedGroups = new List<Group>
 		{
-			new Group ("TJ", "Rachel"),
-			//new Group ("James", "Heng"),
-			new Group ("Advay", "Heng"),
-			new Group ("TJ", "Advay"),
-			//new Group ("Steve", "Chris"),
+			new Group("Matt", "Heng"),
+			new Group("Kunyi", "Rachel"),
+			new Group("Advay", "TJ"),
+			new Group("Matt", "Kunyi"),
+			new Group("Advay", "Heng"),
+			new Group("TJ", "Rachel"),
 		};
 
-		static int DesiredRounds { get; set; }
-		static (int totalRounds, List<Round> bestWorkingSet) BestSolution = (0, new List<Round>());
-		//static (int totalRounds, List<Round> bestWorkingSet) BestSolution { get; set; } = (0, new List<Round>());
-
+		static int DesiredRounds;
+		static StringBuilder SB = new StringBuilder();
 
 		static void Main(string[] args)
 		{
@@ -48,6 +47,7 @@ namespace UniquePairings
 
 			DesiredRounds = Participants.Count - 1;
 			CreateUniquePairing();
+			WriteResults();
 		}
 
 		static void CreateUniquePairing()
@@ -83,10 +83,11 @@ namespace UniquePairings
 			groups.AddRange(PossiblePairings);
 
 			var isPossible = BackTrackingPairings(groups, 0, new List<Round>());
-			while (DesiredRounds > 0 && !BackTrackingPairings(groups, 0, new List<Round>()))
+			while (DesiredRounds > 0 && !isPossible)
 			{
-				Console.WriteLine($"Did not find a fully working solution with {DesiredRounds}\nLet's try with {DesiredRounds - 1}");
+				SB.AppendLine($"Did not find a fully working solution with {DesiredRounds}\nLet's try with {DesiredRounds - 1}");
 				DesiredRounds -= 1;
+				isPossible = BackTrackingPairings(groups, 0, new List<Round>());
 			}
 		}
 
@@ -99,7 +100,7 @@ namespace UniquePairings
 			//// base case, we hit enough round numbers
 			if (roundNumber == DesiredRounds)
 			{
-				PrintWorkingSet(workingSet);
+				LogWorkingSet(workingSet);
 				return true;
 			}
 
@@ -224,25 +225,32 @@ namespace UniquePairings
 			}
 		}
 
-		static void PrintPairings(IEnumerable<Group> groups)
+		static void LogPairings(IEnumerable<Group> groups)
 		{
 			foreach (var group in groups)
 			{
-				// change the format so it is easy to paste into the method
-				//new Group("Advay", "Heng"),
-				Console.WriteLine($"new Group(\"{group.Person}\", \"{group.Partner}\"),");
+				SB.AppendLine($"new Group(\"{group.Person}\", \"{group.Partner}\"),");
 			}
 		}
 
-		static void PrintWorkingSet(List<Round> rounds)
+		static void LogWorkingSet(List<Round> rounds)
 		{
 			var roundNumber = 1;
 			foreach (var round in rounds)
 			{
-				Console.WriteLine($"\nRound: {round.RoundNumber + 1}");
-				PrintPairings(round.Groups);
+				SB.AppendLine($"\nRound: {round.RoundNumber + 1}");
+				LogPairings(round.Groups);
 				roundNumber++;
 			}
+		}
+
+		static void WriteResults()
+		{
+			Console.WriteLine(SB.ToString());
+
+			var outputFile = new StreamWriter("./../../../output.txt", false);
+			outputFile.WriteLine(SB.ToString());
+			outputFile.Close();
 		}
 	}
 
