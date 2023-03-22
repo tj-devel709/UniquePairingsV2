@@ -27,10 +27,43 @@ namespace UniquePairings
 			"Heng1",
 			"TJ1",
 			"Rachel1",
-			//"Jim1",
-			//"Pam1"
+			"Jim1",
+			"Pam1",
 			"Jim2",
-			"Pam2"
+			"Pam2",
+			"DoRon",
+			"Alex",
+			"Manuel",
+			"Rolf",
+			"Steve",
+			"Dustin",
+			"Haritha",
+
+			"Matt3",
+			"Kunyi3",
+			"Advay3",
+			"Heng3",
+			"TJ3",
+			"Rachel3",
+			"Jim3",
+			"Pam3",
+			"Matt13",
+			"Kunyi13",
+			"Advay13",
+			"Heng13",
+			"TJ13",
+			"Rachel13",
+			"Jim13",
+			"Pam13",
+			"Jim23",
+			"Pam23",
+			"DoRon3",
+			"Alex3",
+			"Manuel3",
+			"Rolf3",
+			"Steve3",
+			"Dustin3",
+			"Haritha3",
 		};
 
 		// If we have already met with some groups, put in the groups here
@@ -45,6 +78,18 @@ namespace UniquePairings
 			new Group("Advay1", "Heng1"),
 			new Group("TJ1", "Rachel1"),
 			new Group("Jim1", "Pam1"),
+			new Group("Matt", "Kunyi"),
+			new Group("Advay", "Heng"),
+			new Group("TJ", "Jim"),
+			new Group("Rachel", "Pam"),
+			new Group("Matt1", "Advay1"),
+			new Group("Kunyi1", "Heng1"),
+			new Group("TJ1", "Jim1"),
+			new Group("Rachel1", "Pam1"),
+			new Group("Jim2", "Pam2"),
+			new Group("DoRon", "Alex"),
+			new Group("Manuel", "Rolf"),
+			new Group("Steve", "Dustin"),
 		};
 
 		static int DesiredRounds;
@@ -53,7 +98,10 @@ namespace UniquePairings
 		static void Main(string[] args)
 		{
 			var myTimer = new Timer(TimerCallback, null, 0, 4000);
-			DesiredRounds = Participants.Count;
+			//DesiredRounds = Participants.Count;
+			DesiredRounds = Participants.Count > 6 ? 6 : Participants.Count;
+
+
 			Console.WriteLine($"Starting with DesiredRound: {DesiredRounds}");
 
 			CreateUniquePairing();
